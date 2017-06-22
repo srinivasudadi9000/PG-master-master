@@ -176,20 +176,21 @@ public class Orders extends Activity implements View.OnClickListener {
         protected JSONObject doInBackground(String... strings) {
             nameValuePairs = new ArrayList<NameValuePair>();
 
-            nameValuePairs.add(new BasicNameValuePair("ddate",datepicker));
-            nameValuePairs.add(new BasicNameValuePair("areaandroute",arearoute));
-            nameValuePairs.add(new BasicNameValuePair("dealername",delear_name));
-            nameValuePairs.add(new BasicNameValuePair("personmet",person_met));
-            nameValuePairs.add(new BasicNameValuePair("contactnumber",contactnumber));
-            nameValuePairs.add(new BasicNameValuePair("fromtime",fromtime));
+            nameValuePairs.add(new BasicNameValuePair("orderno","1000"));
+            nameValuePairs.add(new BasicNameValuePair("place",datepicker));
+            nameValuePairs.add(new BasicNameValuePair("products",arearoute));
+            nameValuePairs.add(new BasicNameValuePair("size",delear_name));
+            nameValuePairs.add(new BasicNameValuePair("qty",person_met));
+            nameValuePairs.add(new BasicNameValuePair("deliverydate",contactnumber));
+         /*   nameValuePairs.add(new BasicNameValuePair("remarks",fromtime));
             nameValuePairs.add(new BasicNameValuePair("totime",totime));
             nameValuePairs.add(new BasicNameValuePair("purposevisit",purposeofvisit));
             nameValuePairs.add(new BasicNameValuePair("nextvisitdate",nextvisitdate));
             nameValuePairs.add(new BasicNameValuePair("purposeorders",proposeorder));
             nameValuePairs.add(new BasicNameValuePair("areacompetitors",areacompetitors));
-            nameValuePairs.add(new BasicNameValuePair("remarks",remarks));
+            nameValuePairs.add(new BasicNameValuePair("remarks",remarks));*/
 
-            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertdailywork",2, nameValuePairs);
+            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertorders",1, nameValuePairs);
             //  json = JSONParser.makeServiceCall("http://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms", 1, nameValuePairs);
             return json;
         }

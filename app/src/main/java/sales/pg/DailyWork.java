@@ -209,6 +209,7 @@ public class DailyWork extends Activity implements View.OnClickListener{
             super.onPostExecute(jsonObject);
             progressDialog.dismiss();
             Toast.makeText(getBaseContext(),jsonObject.toString(),Toast.LENGTH_SHORT).show();
+/*
             try {
                 String username = jsonObject.getString("username");
                 if (username.equals("null")){
@@ -220,6 +221,7 @@ public class DailyWork extends Activity implements View.OnClickListener{
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+*/
         }
 
         @Override

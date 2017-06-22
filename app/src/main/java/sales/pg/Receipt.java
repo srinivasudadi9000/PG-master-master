@@ -135,6 +135,7 @@ EditText datepicker,customer,place,osondate,particulars,dateddd,amount,receivedb
             super.onPostExecute(jsonObject);
             progressDialog.dismiss();
             Toast.makeText(getBaseContext(),jsonObject.toString(),Toast.LENGTH_SHORT).show();
+/*
             try {
                 String username = jsonObject.getString("username");
                 if (username.equals("null")){
@@ -146,23 +147,24 @@ EditText datepicker,customer,place,osondate,particulars,dateddd,amount,receivedb
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+*/
         }
 
         @Override
         protected JSONObject doInBackground(String... strings) {
             nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("ddate",datepicker));
-            nameValuePairs.add(new BasicNameValuePair("areaandroute",customer));
-            nameValuePairs.add(new BasicNameValuePair("dealername",place));
-            nameValuePairs.add(new BasicNameValuePair("personmet",osondate));
-            nameValuePairs.add(new BasicNameValuePair("contactnumber",particulars));
-            nameValuePairs.add(new BasicNameValuePair("fromtime",dateddd));
-            nameValuePairs.add(new BasicNameValuePair("totime",amount));
-            nameValuePairs.add(new BasicNameValuePair("purposevisit",receivedby));
-            nameValuePairs.add(new BasicNameValuePair("nextvisitdate",docsenddetails));
+            nameValuePairs.add(new BasicNameValuePair("rdate1",datepicker));
+            nameValuePairs.add(new BasicNameValuePair("rcustomer",customer));
+            nameValuePairs.add(new BasicNameValuePair("rplace",place));
+            nameValuePairs.add(new BasicNameValuePair("rosondate",osondate));
+            nameValuePairs.add(new BasicNameValuePair("rparticulars",particulars));
+            nameValuePairs.add(new BasicNameValuePair("rdate2",dateddd));
+            nameValuePairs.add(new BasicNameValuePair("ramount",amount));
+            nameValuePairs.add(new BasicNameValuePair("rreceivedby",receivedby));
+            nameValuePairs.add(new BasicNameValuePair("rdocsenddetails",docsenddetails));
             nameValuePairs.add(new BasicNameValuePair("remarks",remarks));
 
-            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertdailywork",2, nameValuePairs);
+            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertreceipts",1, nameValuePairs);
             //  json = JSONParser.makeServiceCall("http://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms", 1, nameValuePairs);
             return json;
         }

@@ -146,6 +146,7 @@ EditText date,coplainttype,dealerdetails,place,products,size,quantity,complaintd
             super.onPostExecute(jsonObject);
             progressDialog.dismiss();
             Toast.makeText(getBaseContext(),jsonObject.toString(),Toast.LENGTH_SHORT).show();
+/*
             try {
                 String username = jsonObject.getString("username");
                 if (username.equals("null")){
@@ -157,23 +158,23 @@ EditText date,coplainttype,dealerdetails,place,products,size,quantity,complaintd
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+*/
         }
 
         @Override
         protected JSONObject doInBackground(String... strings) {
             nameValuePairs = new ArrayList<NameValuePair>();
-             nameValuePairs.add(new BasicNameValuePair("ddate",date));
-            nameValuePairs.add(new BasicNameValuePair("areaandroute",coplainttype));
-            nameValuePairs.add(new BasicNameValuePair("dealername",dealerdetails));
-            nameValuePairs.add(new BasicNameValuePair("personmet",place));
-            nameValuePairs.add(new BasicNameValuePair("contactnumber",products));
-            nameValuePairs.add(new BasicNameValuePair("fromtime",size));
-            nameValuePairs.add(new BasicNameValuePair("totime",quantity));
-            nameValuePairs.add(new BasicNameValuePair("purposevisit",complaintdetails));
+             nameValuePairs.add(new BasicNameValuePair("edate",date));
+            nameValuePairs.add(new BasicNameValuePair("eroute",coplainttype));
+            nameValuePairs.add(new BasicNameValuePair("evehicletype",dealerdetails));
+            nameValuePairs.add(new BasicNameValuePair("enoofkms",place));
+            nameValuePairs.add(new BasicNameValuePair("eratekm",products));
+            nameValuePairs.add(new BasicNameValuePair("edailyfuelexpenses",size));
+            nameValuePairs.add(new BasicNameValuePair("edailyallowance",quantity));
+            nameValuePairs.add(new BasicNameValuePair("eotherexpenses",complaintdetails));
+            nameValuePairs.add(new BasicNameValuePair("eremarks",remarks));
 
-            nameValuePairs.add(new BasicNameValuePair("remarks",remarks));
-
-            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertdailywork",2, nameValuePairs);
+            json = JSONParser.makeServiceCall("http://www.pg-iglobal.com/Arthmetic.asmx/insertexpenses",1, nameValuePairs);
             //  json = JSONParser.makeServiceCall("http://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms", 1, nameValuePairs);
             return json;
         }
